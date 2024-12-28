@@ -1,0 +1,681 @@
+2024-12-25 21:25:22 - root - INFO: - Dataset:Caltech101-20
+2024-12-25 21:25:22 - root - INFO: - type = CG
+2024-12-25 21:25:22 - root - INFO: - view = 3
+2024-12-25 21:25:22 - root - INFO: - seed = 8
+2024-12-25 21:25:22 - root - INFO: - training={
+2024-12-25 21:25:22 - root - INFO: -           lr = 0.0003
+2024-12-25 21:25:22 - root - INFO: -           start_dual_prediction = 500
+2024-12-25 21:25:22 - root - INFO: -           batch_size = 256
+2024-12-25 21:25:22 - root - INFO: -           epoch = 1000
+2024-12-25 21:25:22 - root - INFO: -           alpha = 10
+2024-12-25 21:25:22 - root - INFO: -           lambda1 = 0.1
+2024-12-25 21:25:22 - root - INFO: -           lambda2 = 0.1
+2024-12-25 21:25:22 - root - INFO: -           lambda3 = 1.0
+2024-12-25 21:25:22 - root - INFO: -           lambda4 = 1.0
+2024-12-25 21:25:22 - root - INFO: - Autoencoder={
+2024-12-25 21:25:22 - root - INFO: -           arch1 = [1984, 1024, 1024, 1024, 128]
+2024-12-25 21:25:22 - root - INFO: -           arch2 = [512, 1024, 1024, 1024, 128]
+2024-12-25 21:25:22 - root - INFO: -           arch3 = [928, 1024, 1024, 1024, 128]
+2024-12-25 21:25:22 - root - INFO: -           activations = relu
+2024-12-25 21:25:22 - root - INFO: -           batchnorm = True
+2024-12-25 21:25:22 - root - INFO: - Prediction={
+2024-12-25 21:25:22 - root - INFO: -           arch1 = [128, 256, 128]
+2024-12-25 21:25:22 - root - INFO: -           arch2 = [128, 256, 128]
+2024-12-25 21:25:22 - root - INFO: -           arch3 = [128, 256, 128]
+2024-12-25 21:25:22 - root - INFO: - missing_rate = 0.0
+2024-12-25 21:25:22 - root - INFO: - print_num = 50
+2024-12-25 21:25:22 - root - INFO: - dataset = Caltech101-20
+2024-12-25 21:25:23 - root - INFO: - Autoencoder(
+  (_encoder): Sequential(
+    (0): Linear(in_features=1984, out_features=1024, bias=True)
+    (1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=128, bias=True)
+    (10): Softmax(dim=1)
+  )
+  (_decoder): Sequential(
+    (0): Linear(in_features=128, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=1984, bias=True)
+    (10): LayerNorm((1984,), eps=1e-05, elementwise_affine=True)
+    (11): ReLU()
+  )
+)
+2024-12-25 21:25:23 - root - INFO: - Generator(
+  (model): Sequential(
+    (0): Linear(in_features=128, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+  )
+)
+2024-12-25 21:25:23 - root - INFO: - Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+)
+2024-12-25 21:25:49 - root - INFO: - [2;29mEpoch : 50/1000 ===> Reconstruction loss = 0.4354===> Reconstruction loss = 0.0309 ===> Loss_icl = -2.4799e+02 ===> Los_ccl = 1.7712e+03 ===> Generator loss = -2.4558e+01 ===> Discriminator loss = 6.5560e+00 ===> All loss = 1.5053e+03[0m
+2024-12-25 21:25:49 - root - INFO: - [2;29m Accuracy on the test set is 0.9289
+2024-12-25 21:25:49 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:25:49 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:26:15 - root - INFO: - [2;29mEpoch : 100/1000 ===> Reconstruction loss = 0.3608===> Reconstruction loss = 0.0272 ===> Loss_icl = -2.4856e+02 ===> Los_ccl = 1.7891e+03 ===> Generator loss = -2.4592e+01 ===> Discriminator loss = 6.6110e+00 ===> All loss = 1.5226e+03[0m
+2024-12-25 21:26:15 - root - INFO: - [2;29m Accuracy on the test set is 0.9477
+2024-12-25 21:26:15 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:26:15 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 21:26:43 - root - INFO: - [2;29mEpoch : 150/1000 ===> Reconstruction loss = 0.3072===> Reconstruction loss = 0.0249 ===> Loss_icl = -2.4851e+02 ===> Los_ccl = 1.7813e+03 ===> Generator loss = -2.4619e+01 ===> Discriminator loss = 6.6655e+00 ===> All loss = 1.5149e+03[0m
+2024-12-25 21:26:43 - root - INFO: - [2;29m Accuracy on the test set is 0.9247
+2024-12-25 21:26:43 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:26:43 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:27:09 - root - INFO: - [2;29mEpoch : 200/1000 ===> Reconstruction loss = 0.2695===> Reconstruction loss = 0.0236 ===> Loss_icl = -2.4843e+02 ===> Los_ccl = 1.7833e+03 ===> Generator loss = -2.4620e+01 ===> Discriminator loss = 6.6662e+00 ===> All loss = 1.5170e+03[0m
+2024-12-25 21:27:09 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 21:27:09 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:27:09 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:27:35 - root - INFO: - [2;29mEpoch : 250/1000 ===> Reconstruction loss = 0.2398===> Reconstruction loss = 0.0220 ===> Loss_icl = -2.4865e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4639e+01 ===> Discriminator loss = 6.7116e+00 ===> All loss = 1.5186e+03[0m
+2024-12-25 21:27:35 - root - INFO: - [2;29m Accuracy on the test set is 0.9456
+2024-12-25 21:27:35 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:27:35 - root - INFO: - [2;29m F_score on the test set is 0.8700
+2024-12-25 21:28:00 - root - INFO: - [2;29mEpoch : 300/1000 ===> Reconstruction loss = 0.2347===> Reconstruction loss = 0.0237 ===> Loss_icl = -2.4847e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4640e+01 ===> Discriminator loss = 6.7131e+00 ===> All loss = 1.5218e+03[0m
+2024-12-25 21:28:00 - root - INFO: - [2;29m Accuracy on the test set is 0.9142
+2024-12-25 21:28:00 - root - INFO: - [2;29m Precision on the test set is 0.8500
+2024-12-25 21:28:00 - root - INFO: - [2;29m F_score on the test set is 0.8100
+2024-12-25 21:28:26 - root - INFO: - [2;29mEpoch : 350/1000 ===> Reconstruction loss = 0.2011===> Reconstruction loss = 0.0210 ===> Loss_icl = -2.4864e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4642e+01 ===> Discriminator loss = 6.7127e+00 ===> All loss = 1.5187e+03[0m
+2024-12-25 21:28:26 - root - INFO: - [2;29m Accuracy on the test set is 0.9310
+2024-12-25 21:28:26 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:28:26 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:28:52 - root - INFO: - [2;29mEpoch : 400/1000 ===> Reconstruction loss = 0.1850===> Reconstruction loss = 0.0207 ===> Loss_icl = -2.4854e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4646e+01 ===> Discriminator loss = 6.7202e+00 ===> All loss = 1.5178e+03[0m
+2024-12-25 21:28:52 - root - INFO: - [2;29m Accuracy on the test set is 0.9205
+2024-12-25 21:28:52 - root - INFO: - [2;29m Precision on the test set is 0.8600
+2024-12-25 21:28:52 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:29:18 - root - INFO: - [2;29mEpoch : 450/1000 ===> Reconstruction loss = 0.2596===> Reconstruction loss = 0.0216 ===> Loss_icl = -2.4771e+02 ===> Los_ccl = 1.7601e+03 ===> Generator loss = -2.4641e+01 ===> Discriminator loss = 6.7241e+00 ===> All loss = 1.4945e+03[0m
+2024-12-25 21:29:18 - root - INFO: - [2;29m Accuracy on the test set is 0.8954
+2024-12-25 21:29:18 - root - INFO: - [2;29m Precision on the test set is 0.8200
+2024-12-25 21:29:18 - root - INFO: - [2;29m F_score on the test set is 0.7700
+2024-12-25 21:29:44 - root - INFO: - [2;29mEpoch : 500/1000 ===> Reconstruction loss = 0.1886===> Reconstruction loss = 0.0195 ===> Loss_icl = -2.4859e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4649e+01 ===> Discriminator loss = 6.7336e+00 ===> All loss = 1.5188e+03[0m
+2024-12-25 21:29:44 - root - INFO: - [2;29m Accuracy on the test set is 0.9184
+2024-12-25 21:29:44 - root - INFO: - [2;29m Precision on the test set is 0.8500
+2024-12-25 21:29:44 - root - INFO: - [2;29m F_score on the test set is 0.8100
+2024-12-25 21:30:11 - root - INFO: - [2;29mEpoch : 550/1000 ===> Reconstruction loss = 0.1711===> Reconstruction loss = 0.0181 ===> Loss_icl = -2.4862e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4650e+01 ===> Discriminator loss = 6.7342e+00 ===> All loss = 1.5187e+03[0m
+2024-12-25 21:30:11 - root - INFO: - [2;29m Accuracy on the test set is 0.9247
+2024-12-25 21:30:11 - root - INFO: - [2;29m Precision on the test set is 0.8400
+2024-12-25 21:30:11 - root - INFO: - [2;29m F_score on the test set is 0.8100
+2024-12-25 21:30:37 - root - INFO: - [2;29mEpoch : 600/1000 ===> Reconstruction loss = 0.1641===> Reconstruction loss = 0.0173 ===> Loss_icl = -2.4862e+02 ===> Los_ccl = 1.7871e+03 ===> Generator loss = -2.4650e+01 ===> Discriminator loss = 6.7338e+00 ===> All loss = 1.5206e+03[0m
+2024-12-25 21:30:37 - root - INFO: - [2;29m Accuracy on the test set is 0.9184
+2024-12-25 21:30:37 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:30:37 - root - INFO: - [2;29m F_score on the test set is 0.8000
+2024-12-25 21:31:05 - root - INFO: - [2;29mEpoch : 650/1000 ===> Reconstruction loss = 0.1572===> Reconstruction loss = 0.0170 ===> Loss_icl = -2.4863e+02 ===> Los_ccl = 1.7803e+03 ===> Generator loss = -2.4650e+01 ===> Discriminator loss = 6.7340e+00 ===> All loss = 1.5138e+03[0m
+2024-12-25 21:31:05 - root - INFO: - [2;29m Accuracy on the test set is 0.9289
+2024-12-25 21:31:05 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 21:31:05 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:31:31 - root - INFO: - [2;29mEpoch : 700/1000 ===> Reconstruction loss = 0.1478===> Reconstruction loss = 0.0164 ===> Loss_icl = -2.4878e+02 ===> Los_ccl = 1.7833e+03 ===> Generator loss = -2.4649e+01 ===> Discriminator loss = 6.7344e+00 ===> All loss = 1.5166e+03[0m
+2024-12-25 21:31:31 - root - INFO: - [2;29m Accuracy on the test set is 0.9247
+2024-12-25 21:31:31 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:31:31 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:31:58 - root - INFO: - [2;29mEpoch : 750/1000 ===> Reconstruction loss = 0.1402===> Reconstruction loss = 0.0156 ===> Loss_icl = -2.4867e+02 ===> Los_ccl = 1.7842e+03 ===> Generator loss = -2.4650e+01 ===> Discriminator loss = 6.7344e+00 ===> All loss = 1.5176e+03[0m
+2024-12-25 21:31:58 - root - INFO: - [2;29m Accuracy on the test set is 0.9247
+2024-12-25 21:31:58 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:31:58 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 21:32:25 - root - INFO: - [2;29mEpoch : 800/1000 ===> Reconstruction loss = 0.1357===> Reconstruction loss = 0.0152 ===> Loss_icl = -2.4862e+02 ===> Los_ccl = 1.7833e+03 ===> Generator loss = -2.4650e+01 ===> Discriminator loss = 6.7342e+00 ===> All loss = 1.5168e+03[0m
+2024-12-25 21:32:25 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 21:32:25 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 21:32:25 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 21:32:51 - root - INFO: - [2;29mEpoch : 850/1000 ===> Reconstruction loss = 0.1322===> Reconstruction loss = 0.0154 ===> Loss_icl = -2.4876e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4649e+01 ===> Discriminator loss = 6.7351e+00 ===> All loss = 1.5185e+03[0m
+2024-12-25 21:32:51 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:32:51 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:32:51 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:33:19 - root - INFO: - [2;29mEpoch : 900/1000 ===> Reconstruction loss = 0.1539===> Reconstruction loss = 0.0186 ===> Loss_icl = -2.4872e+02 ===> Los_ccl = 1.7872e+03 ===> Generator loss = -2.4648e+01 ===> Discriminator loss = 6.7358e+00 ===> All loss = 1.5206e+03[0m
+2024-12-25 21:33:19 - root - INFO: - [2;29m Accuracy on the test set is 0.9142
+2024-12-25 21:33:19 - root - INFO: - [2;29m Precision on the test set is 0.8200
+2024-12-25 21:33:19 - root - INFO: - [2;29m F_score on the test set is 0.7900
+2024-12-25 21:33:47 - root - INFO: - [2;29mEpoch : 950/1000 ===> Reconstruction loss = 0.1456===> Reconstruction loss = 0.0168 ===> Loss_icl = -2.4905e+02 ===> Los_ccl = 1.7832e+03 ===> Generator loss = -2.4661e+01 ===> Discriminator loss = 6.7588e+00 ===> All loss = 1.5163e+03[0m
+2024-12-25 21:33:47 - root - INFO: - [2;29m Accuracy on the test set is 0.9205
+2024-12-25 21:33:47 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:33:47 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:34:14 - root - INFO: - [2;29mEpoch : 1000/1000 ===> Reconstruction loss = 0.1401===> Reconstruction loss = 0.0160 ===> Loss_icl = -2.4898e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4661e+01 ===> Discriminator loss = 6.7601e+00 ===> All loss = 1.5184e+03[0m
+2024-12-25 21:34:14 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 21:34:14 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:34:14 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:34:14 - root - INFO: - Autoencoder(
+  (_encoder): Sequential(
+    (0): Linear(in_features=1984, out_features=1024, bias=True)
+    (1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=128, bias=True)
+    (10): Softmax(dim=1)
+  )
+  (_decoder): Sequential(
+    (0): Linear(in_features=128, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=1984, bias=True)
+    (10): LayerNorm((1984,), eps=1e-05, elementwise_affine=True)
+    (11): ReLU()
+  )
+)
+2024-12-25 21:34:14 - root - INFO: - Generator(
+  (model): Sequential(
+    (0): Linear(in_features=128, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+  )
+)
+2024-12-25 21:34:14 - root - INFO: - Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+)
+2024-12-25 21:34:40 - root - INFO: - [2;29mEpoch : 50/1000 ===> Reconstruction loss = 0.4187===> Reconstruction loss = 0.0317 ===> Loss_icl = -2.4749e+02 ===> Los_ccl = 1.7540e+03 ===> Generator loss = -2.4326e+01 ===> Discriminator loss = 6.6009e+00 ===> All loss = 1.4889e+03[0m
+2024-12-25 21:34:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9268
+2024-12-25 21:34:40 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:34:40 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 21:35:07 - root - INFO: - [2;29mEpoch : 100/1000 ===> Reconstruction loss = 0.3368===> Reconstruction loss = 0.0279 ===> Loss_icl = -2.4820e+02 ===> Los_ccl = 1.7891e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6246e+00 ===> All loss = 1.5233e+03[0m
+2024-12-25 21:35:07 - root - INFO: - [2;29m Accuracy on the test set is 0.9582
+2024-12-25 21:35:07 - root - INFO: - [2;29m Precision on the test set is 0.9300
+2024-12-25 21:35:07 - root - INFO: - [2;29m F_score on the test set is 0.9100
+2024-12-25 21:35:34 - root - INFO: - [2;29mEpoch : 150/1000 ===> Reconstruction loss = 0.2855===> Reconstruction loss = 0.0245 ===> Loss_icl = -2.4842e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6250e+00 ===> All loss = 1.5220e+03[0m
+2024-12-25 21:35:34 - root - INFO: - [2;29m Accuracy on the test set is 0.9435
+2024-12-25 21:35:34 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:35:34 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 21:36:01 - root - INFO: - [2;29mEpoch : 200/1000 ===> Reconstruction loss = 0.2450===> Reconstruction loss = 0.0225 ===> Loss_icl = -2.4823e+02 ===> Los_ccl = 1.7863e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6245e+00 ===> All loss = 1.5204e+03[0m
+2024-12-25 21:36:01 - root - INFO: - [2;29m Accuracy on the test set is 0.9561
+2024-12-25 21:36:01 - root - INFO: - [2;29m Precision on the test set is 0.9200
+2024-12-25 21:36:01 - root - INFO: - [2;29m F_score on the test set is 0.9000
+2024-12-25 21:36:29 - root - INFO: - [2;29mEpoch : 250/1000 ===> Reconstruction loss = 0.2145===> Reconstruction loss = 0.0210 ===> Loss_icl = -2.4826e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6252e+00 ===> All loss = 1.5222e+03[0m
+2024-12-25 21:36:29 - root - INFO: - [2;29m Accuracy on the test set is 0.9540
+2024-12-25 21:36:29 - root - INFO: - [2;29m Precision on the test set is 0.9400
+2024-12-25 21:36:29 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 21:37:01 - root - INFO: - [2;29mEpoch : 300/1000 ===> Reconstruction loss = 0.2286===> Reconstruction loss = 0.0230 ===> Loss_icl = -2.4811e+02 ===> Los_ccl = 1.7473e+03 ===> Generator loss = -2.4348e+01 ===> Discriminator loss = 6.6249e+00 ===> All loss = 1.4815e+03[0m
+2024-12-25 21:37:02 - root - INFO: - [2;29m Accuracy on the test set is 0.8033
+2024-12-25 21:37:02 - root - INFO: - [2;29m Precision on the test set is 0.7900
+2024-12-25 21:37:02 - root - INFO: - [2;29m F_score on the test set is 0.6200
+2024-12-25 21:37:33 - root - INFO: - [2;29mEpoch : 350/1000 ===> Reconstruction loss = 0.1838===> Reconstruction loss = 0.0201 ===> Loss_icl = -2.4814e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6240e+00 ===> All loss = 1.5203e+03[0m
+2024-12-25 21:37:33 - root - INFO: - [2;29m Accuracy on the test set is 0.9498
+2024-12-25 21:37:33 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:37:33 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 21:38:01 - root - INFO: - [2;29mEpoch : 400/1000 ===> Reconstruction loss = 0.1607===> Reconstruction loss = 0.0184 ===> Loss_icl = -2.4822e+02 ===> Los_ccl = 1.7910e+03 ===> Generator loss = -2.4348e+01 ===> Discriminator loss = 6.6245e+00 ===> All loss = 1.5251e+03[0m
+2024-12-25 21:38:01 - root - INFO: - [2;29m Accuracy on the test set is 0.9540
+2024-12-25 21:38:01 - root - INFO: - [2;29m Precision on the test set is 0.9200
+2024-12-25 21:38:01 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 21:38:29 - root - INFO: - [2;29mEpoch : 450/1000 ===> Reconstruction loss = 0.1464===> Reconstruction loss = 0.0176 ===> Loss_icl = -2.4820e+02 ===> Los_ccl = 1.7863e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6259e+00 ===> All loss = 1.5204e+03[0m
+2024-12-25 21:38:29 - root - INFO: - [2;29m Accuracy on the test set is 0.9289
+2024-12-25 21:38:29 - root - INFO: - [2;29m Precision on the test set is 0.9300
+2024-12-25 21:38:29 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:38:58 - root - INFO: - [2;29mEpoch : 500/1000 ===> Reconstruction loss = 0.1360===> Reconstruction loss = 0.0169 ===> Loss_icl = -2.4829e+02 ===> Los_ccl = 1.7872e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6251e+00 ===> All loss = 1.5212e+03[0m
+2024-12-25 21:38:58 - root - INFO: - [2;29m Accuracy on the test set is 0.9519
+2024-12-25 21:38:58 - root - INFO: - [2;29m Precision on the test set is 0.9200
+2024-12-25 21:38:58 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 21:39:30 - root - INFO: - [2;29mEpoch : 550/1000 ===> Reconstruction loss = 0.1318===> Reconstruction loss = 0.0164 ===> Loss_icl = -2.4820e+02 ===> Los_ccl = 1.7834e+03 ===> Generator loss = -2.4347e+01 ===> Discriminator loss = 6.6242e+00 ===> All loss = 1.5175e+03[0m
+2024-12-25 21:39:31 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:39:31 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:39:31 - root - INFO: - [2;29m F_score on the test set is 0.8700
+2024-12-25 21:40:00 - root - INFO: - [2;29mEpoch : 600/1000 ===> Reconstruction loss = 0.1871===> Reconstruction loss = 0.0202 ===> Loss_icl = -2.4835e+02 ===> Los_ccl = 1.7771e+03 ===> Generator loss = -2.4356e+01 ===> Discriminator loss = 6.6434e+00 ===> All loss = 1.5111e+03[0m
+2024-12-25 21:40:00 - root - INFO: - [2;29m Accuracy on the test set is 0.9289
+2024-12-25 21:40:00 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:40:00 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 21:40:29 - root - INFO: - [2;29mEpoch : 650/1000 ===> Reconstruction loss = 0.1557===> Reconstruction loss = 0.0176 ===> Loss_icl = -2.4855e+02 ===> Los_ccl = 1.7872e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7026e+00 ===> All loss = 1.5210e+03[0m
+2024-12-25 21:40:29 - root - INFO: - [2;29m Accuracy on the test set is 0.9477
+2024-12-25 21:40:29 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:40:29 - root - INFO: - [2;29m F_score on the test set is 0.8700
+2024-12-25 21:40:59 - root - INFO: - [2;29mEpoch : 700/1000 ===> Reconstruction loss = 0.1369===> Reconstruction loss = 0.0162 ===> Loss_icl = -2.4856e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7027e+00 ===> All loss = 1.5200e+03[0m
+2024-12-25 21:40:59 - root - INFO: - [2;29m Accuracy on the test set is 0.9519
+2024-12-25 21:40:59 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:40:59 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 21:41:28 - root - INFO: - [2;29mEpoch : 750/1000 ===> Reconstruction loss = 0.1267===> Reconstruction loss = 0.0158 ===> Loss_icl = -2.4854e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7016e+00 ===> All loss = 1.5219e+03[0m
+2024-12-25 21:41:28 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:41:28 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:41:28 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:41:57 - root - INFO: - [2;29mEpoch : 800/1000 ===> Reconstruction loss = 0.1238===> Reconstruction loss = 0.0150 ===> Loss_icl = -2.4847e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7021e+00 ===> All loss = 1.5181e+03[0m
+2024-12-25 21:41:57 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:41:57 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:41:57 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:42:29 - root - INFO: - [2;29mEpoch : 850/1000 ===> Reconstruction loss = 0.1103===> Reconstruction loss = 0.0140 ===> Loss_icl = -2.4852e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4387e+01 ===> Discriminator loss = 6.7021e+00 ===> All loss = 1.5201e+03[0m
+2024-12-25 21:42:29 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:42:29 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:42:29 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:43:01 - root - INFO: - [2;29mEpoch : 900/1000 ===> Reconstruction loss = 0.1063===> Reconstruction loss = 0.0139 ===> Loss_icl = -2.4853e+02 ===> Los_ccl = 1.7901e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7032e+00 ===> All loss = 1.5239e+03[0m
+2024-12-25 21:43:01 - root - INFO: - [2;29m Accuracy on the test set is 0.9310
+2024-12-25 21:43:01 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:43:01 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 21:43:34 - root - INFO: - [2;29mEpoch : 950/1000 ===> Reconstruction loss = 0.1043===> Reconstruction loss = 0.0137 ===> Loss_icl = -2.4834e+02 ===> Los_ccl = 1.7890e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7022e+00 ===> All loss = 1.5230e+03[0m
+2024-12-25 21:43:34 - root - INFO: - [2;29m Accuracy on the test set is 0.9372
+2024-12-25 21:43:34 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 21:43:34 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:44:08 - root - INFO: - [2;29mEpoch : 1000/1000 ===> Reconstruction loss = 0.1076===> Reconstruction loss = 0.0161 ===> Loss_icl = -2.4846e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4386e+01 ===> Discriminator loss = 6.7032e+00 ===> All loss = 1.5201e+03[0m
+2024-12-25 21:44:08 - root - INFO: - [2;29m Accuracy on the test set is 0.9498
+2024-12-25 21:44:08 - root - INFO: - [2;29m Precision on the test set is 0.9200
+2024-12-25 21:44:08 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 21:44:09 - root - INFO: - Autoencoder(
+  (_encoder): Sequential(
+    (0): Linear(in_features=1984, out_features=1024, bias=True)
+    (1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=128, bias=True)
+    (10): Softmax(dim=1)
+  )
+  (_decoder): Sequential(
+    (0): Linear(in_features=128, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=1984, bias=True)
+    (10): LayerNorm((1984,), eps=1e-05, elementwise_affine=True)
+    (11): ReLU()
+  )
+)
+2024-12-25 21:44:09 - root - INFO: - Generator(
+  (model): Sequential(
+    (0): Linear(in_features=128, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+  )
+)
+2024-12-25 21:44:09 - root - INFO: - Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+)
+2024-12-25 21:44:42 - root - INFO: - [2;29mEpoch : 50/1000 ===> Reconstruction loss = 0.4015===> Reconstruction loss = 0.0289 ===> Loss_icl = -2.4789e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4695e+01 ===> Discriminator loss = 6.8420e+00 ===> All loss = 1.5186e+03[0m
+2024-12-25 21:44:42 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:44:42 - root - INFO: - [2;29m Precision on the test set is 0.8600
+2024-12-25 21:44:42 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:45:13 - root - INFO: - [2;29mEpoch : 100/1000 ===> Reconstruction loss = 0.3317===> Reconstruction loss = 0.0253 ===> Loss_icl = -2.4815e+02 ===> Los_ccl = 1.7901e+03 ===> Generator loss = -2.4709e+01 ===> Discriminator loss = 6.8571e+00 ===> All loss = 1.5241e+03[0m
+2024-12-25 21:45:13 - root - INFO: - [2;29m Accuracy on the test set is 0.9477
+2024-12-25 21:45:13 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:45:13 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:45:42 - root - INFO: - [2;29mEpoch : 150/1000 ===> Reconstruction loss = 0.2919===> Reconstruction loss = 0.0228 ===> Loss_icl = -2.4823e+02 ===> Los_ccl = 1.7901e+03 ===> Generator loss = -2.4770e+01 ===> Discriminator loss = 6.9715e+00 ===> All loss = 1.5241e+03[0m
+2024-12-25 21:45:42 - root - INFO: - [2;29m Accuracy on the test set is 0.9456
+2024-12-25 21:45:42 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:45:42 - root - INFO: - [2;29m F_score on the test set is 0.8700
+2024-12-25 21:46:12 - root - INFO: - [2;29mEpoch : 200/1000 ===> Reconstruction loss = 0.2545===> Reconstruction loss = 0.0209 ===> Loss_icl = -2.4818e+02 ===> Los_ccl = 1.7901e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9712e+00 ===> All loss = 1.5241e+03[0m
+2024-12-25 21:46:12 - root - INFO: - [2;29m Accuracy on the test set is 0.9456
+2024-12-25 21:46:12 - root - INFO: - [2;29m Precision on the test set is 0.9200
+2024-12-25 21:46:12 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 21:46:41 - root - INFO: - [2;29mEpoch : 250/1000 ===> Reconstruction loss = 0.2255===> Reconstruction loss = 0.0197 ===> Loss_icl = -2.4830e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9715e+00 ===> All loss = 1.5192e+03[0m
+2024-12-25 21:46:41 - root - INFO: - [2;29m Accuracy on the test set is 0.9372
+2024-12-25 21:46:41 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:46:41 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:47:10 - root - INFO: - [2;29mEpoch : 300/1000 ===> Reconstruction loss = 0.2033===> Reconstruction loss = 0.0190 ===> Loss_icl = -2.4818e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9703e+00 ===> All loss = 1.5222e+03[0m
+2024-12-25 21:47:10 - root - INFO: - [2;29m Accuracy on the test set is 0.9310
+2024-12-25 21:47:10 - root - INFO: - [2;29m Precision on the test set is 0.8600
+2024-12-25 21:47:10 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:47:41 - root - INFO: - [2;29mEpoch : 350/1000 ===> Reconstruction loss = 0.1777===> Reconstruction loss = 0.0178 ===> Loss_icl = -2.4811e+02 ===> Los_ccl = 1.7910e+03 ===> Generator loss = -2.4770e+01 ===> Discriminator loss = 6.9704e+00 ===> All loss = 1.5252e+03[0m
+2024-12-25 21:47:41 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 21:47:41 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:47:41 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:48:11 - root - INFO: - [2;29mEpoch : 400/1000 ===> Reconstruction loss = 0.1676===> Reconstruction loss = 0.0172 ===> Loss_icl = -2.4831e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9702e+00 ===> All loss = 1.5221e+03[0m
+2024-12-25 21:48:11 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 21:48:11 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:48:11 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 21:48:40 - root - INFO: - [2;29mEpoch : 450/1000 ===> Reconstruction loss = 0.2329===> Reconstruction loss = 0.0244 ===> Loss_icl = -2.4852e+02 ===> Los_ccl = 1.7822e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9744e+00 ===> All loss = 1.5160e+03[0m
+2024-12-25 21:48:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9477
+2024-12-25 21:48:40 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 21:48:40 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:49:09 - root - INFO: - [2;29mEpoch : 500/1000 ===> Reconstruction loss = 0.1811===> Reconstruction loss = 0.0197 ===> Loss_icl = -2.4842e+02 ===> Los_ccl = 1.7861e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9728e+00 ===> All loss = 1.5199e+03[0m
+2024-12-25 21:49:09 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:49:09 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:49:09 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 21:49:40 - root - INFO: - [2;29mEpoch : 550/1000 ===> Reconstruction loss = 0.1573===> Reconstruction loss = 0.0177 ===> Loss_icl = -2.4850e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4772e+01 ===> Discriminator loss = 6.9728e+00 ===> All loss = 1.5199e+03[0m
+2024-12-25 21:49:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9435
+2024-12-25 21:49:40 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 21:49:40 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 21:50:09 - root - INFO: - [2;29mEpoch : 600/1000 ===> Reconstruction loss = 0.1428===> Reconstruction loss = 0.0161 ===> Loss_icl = -2.4853e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4772e+01 ===> Discriminator loss = 6.9733e+00 ===> All loss = 1.5218e+03[0m
+2024-12-25 21:50:09 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 21:50:09 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:50:09 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 21:50:40 - root - INFO: - [2;29mEpoch : 650/1000 ===> Reconstruction loss = 0.1367===> Reconstruction loss = 0.0148 ===> Loss_icl = -2.4856e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4772e+01 ===> Discriminator loss = 6.9728e+00 ===> All loss = 1.5218e+03[0m
+2024-12-25 21:50:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9435
+2024-12-25 21:50:40 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:50:40 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:51:11 - root - INFO: - [2;29mEpoch : 700/1000 ===> Reconstruction loss = 0.1272===> Reconstruction loss = 0.0148 ===> Loss_icl = -2.4831e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4772e+01 ===> Discriminator loss = 6.9729e+00 ===> All loss = 1.5182e+03[0m
+2024-12-25 21:51:11 - root - INFO: - [2;29m Accuracy on the test set is 0.9456
+2024-12-25 21:51:11 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:51:11 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 21:51:41 - root - INFO: - [2;29mEpoch : 750/1000 ===> Reconstruction loss = 0.1229===> Reconstruction loss = 0.0139 ===> Loss_icl = -2.4854e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4772e+01 ===> Discriminator loss = 6.9734e+00 ===> All loss = 1.5218e+03[0m
+2024-12-25 21:51:41 - root - INFO: - [2;29m Accuracy on the test set is 0.9372
+2024-12-25 21:51:41 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:51:41 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 21:52:10 - root - INFO: - [2;29mEpoch : 800/1000 ===> Reconstruction loss = 0.1239===> Reconstruction loss = 0.0146 ===> Loss_icl = -2.4845e+02 ===> Los_ccl = 1.7841e+03 ===> Generator loss = -2.4771e+01 ===> Discriminator loss = 6.9727e+00 ===> All loss = 1.5179e+03[0m
+2024-12-25 21:52:10 - root - INFO: - [2;29m Accuracy on the test set is 0.9372
+2024-12-25 21:52:10 - root - INFO: - [2;29m Precision on the test set is 0.8600
+2024-12-25 21:52:10 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:52:40 - root - INFO: - [2;29mEpoch : 850/1000 ===> Reconstruction loss = 0.1589===> Reconstruction loss = 0.0200 ===> Loss_icl = -2.4886e+02 ===> Los_ccl = 1.7732e+03 ===> Generator loss = -2.4776e+01 ===> Discriminator loss = 6.9731e+00 ===> All loss = 1.5065e+03[0m
+2024-12-25 21:52:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9205
+2024-12-25 21:52:40 - root - INFO: - [2;29m Precision on the test set is 0.8300
+2024-12-25 21:52:40 - root - INFO: - [2;29m F_score on the test set is 0.8100
+2024-12-25 21:53:10 - root - INFO: - [2;29mEpoch : 900/1000 ===> Reconstruction loss = 0.1306===> Reconstruction loss = 0.0163 ===> Loss_icl = -2.4907e+02 ===> Los_ccl = 1.7882e+03 ===> Generator loss = -2.4776e+01 ===> Discriminator loss = 6.9732e+00 ===> All loss = 1.5214e+03[0m
+2024-12-25 21:53:10 - root - INFO: - [2;29m Accuracy on the test set is 0.9456
+2024-12-25 21:53:10 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:53:10 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:53:40 - root - INFO: - [2;29mEpoch : 950/1000 ===> Reconstruction loss = 0.1160===> Reconstruction loss = 0.0152 ===> Loss_icl = -2.4893e+02 ===> Los_ccl = 1.7882e+03 ===> Generator loss = -2.4777e+01 ===> Discriminator loss = 6.9732e+00 ===> All loss = 1.5215e+03[0m
+2024-12-25 21:53:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9331
+2024-12-25 21:53:40 - root - INFO: - [2;29m Precision on the test set is 0.8500
+2024-12-25 21:53:40 - root - INFO: - [2;29m F_score on the test set is 0.8200
+2024-12-25 21:54:11 - root - INFO: - [2;29mEpoch : 1000/1000 ===> Reconstruction loss = 0.1143===> Reconstruction loss = 0.0149 ===> Loss_icl = -2.4912e+02 ===> Los_ccl = 1.7853e+03 ===> Generator loss = -2.4776e+01 ===> Discriminator loss = 6.9729e+00 ===> All loss = 1.5184e+03[0m
+2024-12-25 21:54:12 - root - INFO: - [2;29m Accuracy on the test set is 0.9310
+2024-12-25 21:54:12 - root - INFO: - [2;29m Precision on the test set is 0.8400
+2024-12-25 21:54:12 - root - INFO: - [2;29m F_score on the test set is 0.8100
+2024-12-25 21:54:12 - root - INFO: - Autoencoder(
+  (_encoder): Sequential(
+    (0): Linear(in_features=1984, out_features=1024, bias=True)
+    (1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=128, bias=True)
+    (10): Softmax(dim=1)
+  )
+  (_decoder): Sequential(
+    (0): Linear(in_features=128, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=1984, bias=True)
+    (10): LayerNorm((1984,), eps=1e-05, elementwise_affine=True)
+    (11): ReLU()
+  )
+)
+2024-12-25 21:54:12 - root - INFO: - Generator(
+  (model): Sequential(
+    (0): Linear(in_features=128, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+  )
+)
+2024-12-25 21:54:12 - root - INFO: - Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+)
+2024-12-25 21:54:42 - root - INFO: - [2;29mEpoch : 50/1000 ===> Reconstruction loss = 0.3995===> Reconstruction loss = 0.0318 ===> Loss_icl = -2.4782e+02 ===> Los_ccl = 1.7832e+03 ===> Generator loss = -2.4413e+01 ===> Discriminator loss = 7.2710e+00 ===> All loss = 1.5183e+03[0m
+2024-12-25 21:54:42 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 21:54:42 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:54:42 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:55:14 - root - INFO: - [2;29mEpoch : 100/1000 ===> Reconstruction loss = 0.3396===> Reconstruction loss = 0.0284 ===> Loss_icl = -2.4837e+02 ===> Los_ccl = 1.7842e+03 ===> Generator loss = -2.4444e+01 ===> Discriminator loss = 7.3170e+00 ===> All loss = 1.5188e+03[0m
+2024-12-25 21:55:14 - root - INFO: - [2;29m Accuracy on the test set is 0.9331
+2024-12-25 21:55:14 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 21:55:14 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:55:44 - root - INFO: - [2;29mEpoch : 150/1000 ===> Reconstruction loss = 0.2909===> Reconstruction loss = 0.0251 ===> Loss_icl = -2.4828e+02 ===> Los_ccl = 1.7900e+03 ===> Generator loss = -2.4447e+01 ===> Discriminator loss = 7.3214e+00 ===> All loss = 1.5247e+03[0m
+2024-12-25 21:55:44 - root - INFO: - [2;29m Accuracy on the test set is 0.9310
+2024-12-25 21:55:44 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:55:44 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:56:14 - root - INFO: - [2;29mEpoch : 200/1000 ===> Reconstruction loss = 0.2580===> Reconstruction loss = 0.0233 ===> Loss_icl = -2.4824e+02 ===> Los_ccl = 1.7882e+03 ===> Generator loss = -2.4451e+01 ===> Discriminator loss = 7.3308e+00 ===> All loss = 1.5229e+03[0m
+2024-12-25 21:56:14 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 21:56:14 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 21:56:14 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:56:45 - root - INFO: - [2;29mEpoch : 250/1000 ===> Reconstruction loss = 0.2293===> Reconstruction loss = 0.0216 ===> Loss_icl = -2.4850e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4453e+01 ===> Discriminator loss = 7.3347e+00 ===> All loss = 1.5196e+03[0m
+2024-12-25 21:56:45 - root - INFO: - [2;29m Accuracy on the test set is 0.9268
+2024-12-25 21:56:45 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:56:45 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 21:57:16 - root - INFO: - [2;29mEpoch : 300/1000 ===> Reconstruction loss = 0.2180===> Reconstruction loss = 0.0214 ===> Loss_icl = -2.4832e+02 ===> Los_ccl = 1.7852e+03 ===> Generator loss = -2.4453e+01 ===> Discriminator loss = 7.3351e+00 ===> All loss = 1.5198e+03[0m
+2024-12-25 21:57:16 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:57:16 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 21:57:16 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:57:48 - root - INFO: - [2;29mEpoch : 350/1000 ===> Reconstruction loss = 0.1915===> Reconstruction loss = 0.0209 ===> Loss_icl = -2.4839e+02 ===> Los_ccl = 1.7822e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3368e+00 ===> All loss = 1.5167e+03[0m
+2024-12-25 21:57:48 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 21:57:48 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 21:57:48 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 21:58:18 - root - INFO: - [2;29mEpoch : 400/1000 ===> Reconstruction loss = 0.1925===> Reconstruction loss = 0.0221 ===> Loss_icl = -2.4832e+02 ===> Los_ccl = 1.7851e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3384e+00 ===> All loss = 1.5197e+03[0m
+2024-12-25 21:58:18 - root - INFO: - [2;29m Accuracy on the test set is 0.9121
+2024-12-25 21:58:18 - root - INFO: - [2;29m Precision on the test set is 0.8200
+2024-12-25 21:58:18 - root - INFO: - [2;29m F_score on the test set is 0.7900
+2024-12-25 21:58:49 - root - INFO: - [2;29mEpoch : 450/1000 ===> Reconstruction loss = 0.2267===> Reconstruction loss = 0.0261 ===> Loss_icl = -2.4844e+02 ===> Los_ccl = 1.7861e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3370e+00 ===> All loss = 1.5206e+03[0m
+2024-12-25 21:58:49 - root - INFO: - [2;29m Accuracy on the test set is 0.9331
+2024-12-25 21:58:49 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 21:58:49 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 21:59:18 - root - INFO: - [2;29mEpoch : 500/1000 ===> Reconstruction loss = 0.1579===> Reconstruction loss = 0.0197 ===> Loss_icl = -2.4839e+02 ===> Los_ccl = 1.7872e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3357e+00 ===> All loss = 1.5217e+03[0m
+2024-12-25 21:59:18 - root - INFO: - [2;29m Accuracy on the test set is 0.9540
+2024-12-25 21:59:18 - root - INFO: - [2;29m Precision on the test set is 0.9300
+2024-12-25 21:59:18 - root - INFO: - [2;29m F_score on the test set is 0.9000
+2024-12-25 21:59:48 - root - INFO: - [2;29mEpoch : 550/1000 ===> Reconstruction loss = 0.1440===> Reconstruction loss = 0.0179 ===> Loss_icl = -2.4836e+02 ===> Los_ccl = 1.7882e+03 ===> Generator loss = -2.4453e+01 ===> Discriminator loss = 7.3362e+00 ===> All loss = 1.5227e+03[0m
+2024-12-25 21:59:48 - root - INFO: - [2;29m Accuracy on the test set is 0.9519
+2024-12-25 21:59:48 - root - INFO: - [2;29m Precision on the test set is 0.9300
+2024-12-25 21:59:48 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 22:00:17 - root - INFO: - [2;29mEpoch : 600/1000 ===> Reconstruction loss = 0.1320===> Reconstruction loss = 0.0167 ===> Loss_icl = -2.4834e+02 ===> Los_ccl = 1.7901e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3356e+00 ===> All loss = 1.5246e+03[0m
+2024-12-25 22:00:17 - root - INFO: - [2;29m Accuracy on the test set is 0.9477
+2024-12-25 22:00:17 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 22:00:17 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 22:00:46 - root - INFO: - [2;29mEpoch : 650/1000 ===> Reconstruction loss = 0.1228===> Reconstruction loss = 0.0160 ===> Loss_icl = -2.4849e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3368e+00 ===> All loss = 1.5187e+03[0m
+2024-12-25 22:00:46 - root - INFO: - [2;29m Accuracy on the test set is 0.9310
+2024-12-25 22:00:46 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 22:00:46 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:01:16 - root - INFO: - [2;29mEpoch : 700/1000 ===> Reconstruction loss = 0.1164===> Reconstruction loss = 0.0150 ===> Loss_icl = -2.4833e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3366e+00 ===> All loss = 1.5188e+03[0m
+2024-12-25 22:01:16 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 22:01:16 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 22:01:16 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:01:48 - root - INFO: - [2;29mEpoch : 750/1000 ===> Reconstruction loss = 0.1122===> Reconstruction loss = 0.0147 ===> Loss_icl = -2.4840e+02 ===> Los_ccl = 1.7832e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3360e+00 ===> All loss = 1.5177e+03[0m
+2024-12-25 22:01:48 - root - INFO: - [2;29m Accuracy on the test set is 0.9226
+2024-12-25 22:01:48 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 22:01:48 - root - INFO: - [2;29m F_score on the test set is 0.8300
+2024-12-25 22:02:17 - root - INFO: - [2;29mEpoch : 800/1000 ===> Reconstruction loss = 0.1081===> Reconstruction loss = 0.0140 ===> Loss_icl = -2.4833e+02 ===> Los_ccl = 1.7891e+03 ===> Generator loss = -2.4453e+01 ===> Discriminator loss = 7.3361e+00 ===> All loss = 1.5237e+03[0m
+2024-12-25 22:02:17 - root - INFO: - [2;29m Accuracy on the test set is 0.9289
+2024-12-25 22:02:17 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 22:02:17 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 22:02:47 - root - INFO: - [2;29mEpoch : 850/1000 ===> Reconstruction loss = 0.1074===> Reconstruction loss = 0.0137 ===> Loss_icl = -2.4830e+02 ===> Los_ccl = 1.7863e+03 ===> Generator loss = -2.4453e+01 ===> Discriminator loss = 7.3356e+00 ===> All loss = 1.5209e+03[0m
+2024-12-25 22:02:47 - root - INFO: - [2;29m Accuracy on the test set is 0.9331
+2024-12-25 22:02:47 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 22:02:47 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 22:03:17 - root - INFO: - [2;29mEpoch : 900/1000 ===> Reconstruction loss = 0.1001===> Reconstruction loss = 0.0131 ===> Loss_icl = -2.4842e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4454e+01 ===> Discriminator loss = 7.3378e+00 ===> All loss = 1.5226e+03[0m
+2024-12-25 22:03:17 - root - INFO: - [2;29m Accuracy on the test set is 0.9372
+2024-12-25 22:03:17 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 22:03:17 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:03:46 - root - INFO: - [2;29mEpoch : 950/1000 ===> Reconstruction loss = 0.0933===> Reconstruction loss = 0.0127 ===> Loss_icl = -2.4835e+02 ===> Los_ccl = 1.7833e+03 ===> Generator loss = -2.4455e+01 ===> Discriminator loss = 7.3379e+00 ===> All loss = 1.5178e+03[0m
+2024-12-25 22:03:47 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 22:03:47 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 22:03:47 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 22:04:18 - root - INFO: - [2;29mEpoch : 1000/1000 ===> Reconstruction loss = 0.1194===> Reconstruction loss = 0.0151 ===> Loss_icl = -2.4836e+02 ===> Los_ccl = 1.7871e+03 ===> Generator loss = -2.4462e+01 ===> Discriminator loss = 7.3459e+00 ===> All loss = 1.5217e+03[0m
+2024-12-25 22:04:18 - root - INFO: - [2;29m Accuracy on the test set is 0.9331
+2024-12-25 22:04:18 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 22:04:18 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:04:18 - root - INFO: - Autoencoder(
+  (_encoder): Sequential(
+    (0): Linear(in_features=1984, out_features=1024, bias=True)
+    (1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=128, bias=True)
+    (10): Softmax(dim=1)
+  )
+  (_decoder): Sequential(
+    (0): Linear(in_features=128, out_features=1024, bias=True)
+    (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (2): ReLU()
+    (3): Linear(in_features=1024, out_features=1024, bias=True)
+    (4): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (5): ReLU()
+    (6): Linear(in_features=1024, out_features=1024, bias=True)
+    (7): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (8): ReLU()
+    (9): Linear(in_features=1024, out_features=1984, bias=True)
+    (10): LayerNorm((1984,), eps=1e-05, elementwise_affine=True)
+    (11): ReLU()
+  )
+)
+2024-12-25 22:04:18 - root - INFO: - Generator(
+  (model): Sequential(
+    (0): Linear(in_features=128, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+  )
+)
+2024-12-25 22:04:18 - root - INFO: - Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+)
+2024-12-25 22:04:46 - root - INFO: - [2;29mEpoch : 50/1000 ===> Reconstruction loss = 0.4118===> Reconstruction loss = 0.0297 ===> Loss_icl = -2.4770e+02 ===> Los_ccl = 1.7802e+03 ===> Generator loss = -2.4246e+01 ===> Discriminator loss = 6.6907e+00 ===> All loss = 1.5150e+03[0m
+2024-12-25 22:04:46 - root - INFO: - [2;29m Accuracy on the test set is 0.9519
+2024-12-25 22:04:46 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 22:04:46 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 22:05:16 - root - INFO: - [2;29mEpoch : 100/1000 ===> Reconstruction loss = 0.3374===> Reconstruction loss = 0.0269 ===> Loss_icl = -2.4851e+02 ===> Los_ccl = 1.7823e+03 ===> Generator loss = -2.4265e+01 ===> Discriminator loss = 6.7155e+00 ===> All loss = 1.5163e+03[0m
+2024-12-25 22:05:16 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 22:05:16 - root - INFO: - [2;29m Precision on the test set is 0.8700
+2024-12-25 22:05:16 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:05:45 - root - INFO: - [2;29mEpoch : 150/1000 ===> Reconstruction loss = 0.2952===> Reconstruction loss = 0.0246 ===> Loss_icl = -2.4833e+02 ===> Los_ccl = 1.7881e+03 ===> Generator loss = -2.4264e+01 ===> Discriminator loss = 6.7161e+00 ===> All loss = 1.5223e+03[0m
+2024-12-25 22:05:45 - root - INFO: - [2;29m Accuracy on the test set is 0.9372
+2024-12-25 22:05:45 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 22:05:45 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 22:06:13 - root - INFO: - [2;29mEpoch : 200/1000 ===> Reconstruction loss = 0.2640===> Reconstruction loss = 0.0231 ===> Loss_icl = -2.4853e+02 ===> Los_ccl = 1.7823e+03 ===> Generator loss = -2.4312e+01 ===> Discriminator loss = 6.8069e+00 ===> All loss = 1.5163e+03[0m
+2024-12-25 22:06:13 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 22:06:13 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 22:06:13 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 22:06:42 - root - INFO: - [2;29mEpoch : 250/1000 ===> Reconstruction loss = 0.2344===> Reconstruction loss = 0.0220 ===> Loss_icl = -2.4844e+02 ===> Los_ccl = 1.7842e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8109e+00 ===> All loss = 1.5183e+03[0m
+2024-12-25 22:06:42 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 22:06:42 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 22:06:42 - root - INFO: - [2;29m F_score on the test set is 0.8400
+2024-12-25 22:07:12 - root - INFO: - [2;29mEpoch : 300/1000 ===> Reconstruction loss = 0.2214===> Reconstruction loss = 0.0221 ===> Loss_icl = -2.4857e+02 ===> Los_ccl = 1.7910e+03 ===> Generator loss = -2.4316e+01 ===> Discriminator loss = 6.8106e+00 ===> All loss = 1.5250e+03[0m
+2024-12-25 22:07:12 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 22:07:12 - root - INFO: - [2;29m Precision on the test set is 0.9200
+2024-12-25 22:07:12 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 22:07:41 - root - INFO: - [2;29mEpoch : 350/1000 ===> Reconstruction loss = 0.3220===> Reconstruction loss = 0.0253 ===> Loss_icl = -2.4836e+02 ===> Los_ccl = 1.7242e+03 ===> Generator loss = -2.4314e+01 ===> Discriminator loss = 6.8123e+00 ===> All loss = 1.4584e+03[0m
+2024-12-25 22:07:41 - root - INFO: - [2;29m Accuracy on the test set is 0.6778
+2024-12-25 22:07:41 - root - INFO: - [2;29m Precision on the test set is 0.3800
+2024-12-25 22:07:41 - root - INFO: - [2;29m F_score on the test set is 0.3000
+2024-12-25 22:08:10 - root - INFO: - [2;29mEpoch : 400/1000 ===> Reconstruction loss = 0.2089===> Reconstruction loss = 0.0210 ===> Loss_icl = -2.4851e+02 ===> Los_ccl = 1.7900e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8097e+00 ===> All loss = 1.5241e+03[0m
+2024-12-25 22:08:10 - root - INFO: - [2;29m Accuracy on the test set is 0.9351
+2024-12-25 22:08:10 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 22:08:10 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:08:39 - root - INFO: - [2;29mEpoch : 450/1000 ===> Reconstruction loss = 0.1870===> Reconstruction loss = 0.0198 ===> Loss_icl = -2.4889e+02 ===> Los_ccl = 1.7891e+03 ===> Generator loss = -2.4316e+01 ===> Discriminator loss = 6.8123e+00 ===> All loss = 1.5228e+03[0m
+2024-12-25 22:08:39 - root - INFO: - [2;29m Accuracy on the test set is 0.9435
+2024-12-25 22:08:39 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 22:08:39 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 22:09:08 - root - INFO: - [2;29mEpoch : 500/1000 ===> Reconstruction loss = 0.1710===> Reconstruction loss = 0.0195 ===> Loss_icl = -2.4853e+02 ===> Los_ccl = 1.7871e+03 ===> Generator loss = -2.4316e+01 ===> Discriminator loss = 6.8121e+00 ===> All loss = 1.5211e+03[0m
+2024-12-25 22:09:08 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 22:09:08 - root - INFO: - [2;29m Precision on the test set is 0.8800
+2024-12-25 22:09:08 - root - INFO: - [2;29m F_score on the test set is 0.8600
+2024-12-25 22:09:39 - root - INFO: - [2;29mEpoch : 550/1000 ===> Reconstruction loss = 0.1622===> Reconstruction loss = 0.0185 ===> Loss_icl = -2.4869e+02 ===> Los_ccl = 1.7871e+03 ===> Generator loss = -2.4316e+01 ===> Discriminator loss = 6.8120e+00 ===> All loss = 1.5209e+03[0m
+2024-12-25 22:09:39 - root - INFO: - [2;29m Accuracy on the test set is 0.9519
+2024-12-25 22:09:39 - root - INFO: - [2;29m Precision on the test set is 0.9300
+2024-12-25 22:09:39 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 22:10:09 - root - INFO: - [2;29mEpoch : 600/1000 ===> Reconstruction loss = 0.1591===> Reconstruction loss = 0.0179 ===> Loss_icl = -2.4855e+02 ===> Los_ccl = 1.7871e+03 ===> Generator loss = -2.4317e+01 ===> Discriminator loss = 6.8121e+00 ===> All loss = 1.5211e+03[0m
+2024-12-25 22:10:09 - root - INFO: - [2;29m Accuracy on the test set is 0.9226
+2024-12-25 22:10:09 - root - INFO: - [2;29m Precision on the test set is 0.8500
+2024-12-25 22:10:09 - root - INFO: - [2;29m F_score on the test set is 0.8000
+2024-12-25 22:10:40 - root - INFO: - [2;29mEpoch : 650/1000 ===> Reconstruction loss = 0.1915===> Reconstruction loss = 0.0201 ===> Loss_icl = -2.4896e+02 ===> Los_ccl = 1.7782e+03 ===> Generator loss = -2.4313e+01 ===> Discriminator loss = 6.8134e+00 ===> All loss = 1.5117e+03[0m
+2024-12-25 22:10:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9184
+2024-12-25 22:10:40 - root - INFO: - [2;29m Precision on the test set is 0.8100
+2024-12-25 22:10:40 - root - INFO: - [2;29m F_score on the test set is 0.7900
+2024-12-25 22:11:10 - root - INFO: - [2;29mEpoch : 700/1000 ===> Reconstruction loss = 0.1853===> Reconstruction loss = 0.0193 ===> Loss_icl = -2.4873e+02 ===> Los_ccl = 1.7843e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8148e+00 ===> All loss = 1.5181e+03[0m
+2024-12-25 22:11:10 - root - INFO: - [2;29m Accuracy on the test set is 0.9226
+2024-12-25 22:11:10 - root - INFO: - [2;29m Precision on the test set is 0.8400
+2024-12-25 22:11:10 - root - INFO: - [2;29m F_score on the test set is 0.8000
+2024-12-25 22:11:40 - root - INFO: - [2;29mEpoch : 750/1000 ===> Reconstruction loss = 0.1639===> Reconstruction loss = 0.0171 ===> Loss_icl = -2.4901e+02 ===> Los_ccl = 1.7901e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8157e+00 ===> All loss = 1.5236e+03[0m
+2024-12-25 22:11:40 - root - INFO: - [2;29m Accuracy on the test set is 0.9477
+2024-12-25 22:11:40 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 22:11:40 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 22:12:09 - root - INFO: - [2;29mEpoch : 800/1000 ===> Reconstruction loss = 0.1531===> Reconstruction loss = 0.0162 ===> Loss_icl = -2.4901e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8158e+00 ===> All loss = 1.5197e+03[0m
+2024-12-25 22:12:09 - root - INFO: - [2;29m Accuracy on the test set is 0.9393
+2024-12-25 22:12:09 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 22:12:09 - root - INFO: - [2;29m F_score on the test set is 0.8700
+2024-12-25 22:12:37 - root - INFO: - [2;29mEpoch : 850/1000 ===> Reconstruction loss = 0.1486===> Reconstruction loss = 0.0157 ===> Loss_icl = -2.4902e+02 ===> Los_ccl = 1.7834e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8162e+00 ===> All loss = 1.5169e+03[0m
+2024-12-25 22:12:37 - root - INFO: - [2;29m Accuracy on the test set is 0.9435
+2024-12-25 22:12:37 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 22:12:37 - root - INFO: - [2;29m F_score on the test set is 0.8900
+2024-12-25 22:13:07 - root - INFO: - [2;29mEpoch : 900/1000 ===> Reconstruction loss = 0.1468===> Reconstruction loss = 0.0164 ===> Loss_icl = -2.4893e+02 ===> Los_ccl = 1.7910e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8158e+00 ===> All loss = 1.5246e+03[0m
+2024-12-25 22:13:07 - root - INFO: - [2;29m Accuracy on the test set is 0.9331
+2024-12-25 22:13:07 - root - INFO: - [2;29m Precision on the test set is 0.9000
+2024-12-25 22:13:07 - root - INFO: - [2;29m F_score on the test set is 0.8500
+2024-12-25 22:13:38 - root - INFO: - [2;29mEpoch : 950/1000 ===> Reconstruction loss = 0.1365===> Reconstruction loss = 0.0148 ===> Loss_icl = -2.4915e+02 ===> Los_ccl = 1.7862e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8154e+00 ===> All loss = 1.5196e+03[0m
+2024-12-25 22:13:38 - root - INFO: - [2;29m Accuracy on the test set is 0.9414
+2024-12-25 22:13:38 - root - INFO: - [2;29m Precision on the test set is 0.9100
+2024-12-25 22:13:38 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 22:14:07 - root - INFO: - [2;29mEpoch : 1000/1000 ===> Reconstruction loss = 0.1456===> Reconstruction loss = 0.0150 ===> Loss_icl = -2.4904e+02 ===> Los_ccl = 1.7832e+03 ===> Generator loss = -2.4315e+01 ===> Discriminator loss = 6.8148e+00 ===> All loss = 1.5167e+03[0m
+2024-12-25 22:14:07 - root - INFO: - [2;29m Accuracy on the test set is 0.9456
+2024-12-25 22:14:07 - root - INFO: - [2;29m Precision on the test set is 0.8900
+2024-12-25 22:14:07 - root - INFO: - [2;29m F_score on the test set is 0.8800
+2024-12-25 22:14:07 - root - INFO: - --------------------Training over--------------------
+2024-12-25 22:14:07 - root - INFO: - [0.9351464435146444, 0.9497907949790795, 0.9309623430962343, 0.9330543933054394, 0.9456066945606695]
+2024-12-25 22:14:07 - root - INFO: - [np.float64(0.87), np.float64(0.92), np.float64(0.84), np.float64(0.88), np.float64(0.89)]
+2024-12-25 22:14:07 - root - INFO: - [np.float64(0.85), np.float64(0.88), np.float64(0.81), np.float64(0.85), np.float64(0.88)]
+2024-12-25 22:14:07 - root - INFO: -  
+                     ACC 93.89 std 0.74
+                     Precision 88.00 std 2.61 
+                     F-measure 85.40 std 2.58
+2024-12-25 22:14:07 - root - INFO: - 93.89,0.74;88.0,2.61;85.4,2.58;
